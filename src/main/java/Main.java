@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Objects;
 
-public class Run {
+public class Main {
     static long resAsJson;
     static long resAsYaml;
 
