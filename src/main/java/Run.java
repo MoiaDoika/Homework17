@@ -1,4 +1,3 @@
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gson.Gson;
 import org.json.JSONObject;
@@ -6,15 +5,12 @@ import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.StandardOpenOption;
+import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Objects;
 
-public class RunParser {
+public class Run {
     static long resAsJson;
     static long resAsYaml;
 
@@ -34,13 +30,13 @@ public class RunParser {
     private static void getFileStructure(File file) throws IOException, InterruptedException {
         if (file.isFile()) {
             if (file.getName().endsWith(".json")) {
-                String json = ReadFromFile.readToString(file.getPath());
+                String json = Reader.readToString(file.getPath());
                 //System.out.println(asYaml(json));
                 writeToFile(file.getName(), asYaml(json));
                 writeLog(file);
             }
             if (file.getName().endsWith(".yaml")) {
-                String yaml = ReadFromFile.readToString(file.getPath());
+                String yaml = Reader.readToString(file.getPath());
                 //System.out.println(asJson(yaml));
                 writeToFile(file.getName(), asJson(yaml));
                 writeLog(file);
@@ -146,4 +142,3 @@ public class RunParser {
     }
 
 }
-
